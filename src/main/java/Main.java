@@ -1,11 +1,16 @@
+import ConvertSMS.CostOfSMS;
+import ConvertSMS.ImportText;
 import ConvertSMS.SMSConvertor;
 import ConvertSMS.Smaz;
 
+import java.io.File;
+import java.io.IOException;
 import java.util.Scanner;
 
 public class Main {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
         Scanner sc = new Scanner(System.in);
+        CostOfSMS costOfSMS= null;
         System.out.println("Wprowadz text smsa");
         String smsText=sc.nextLine();
         SMSConvertor smsConvertor= new SMSConvertor(smsText);
@@ -22,6 +27,11 @@ public class Main {
                 byte[] compressed = smaz.compress(smsText);
                 String uncompressedString = smaz.decompress(compressed);
                 System.out.println(uncompressedString);
+            case 3:
+                ImportText importText = new ImportText("Import");
+                String text = importText.readText();
+                costOfSMS=new CostOfSMS(text);
+                System.out.println(costOfSMS.CalculateCostOfSMS());
         }
     }
 }
