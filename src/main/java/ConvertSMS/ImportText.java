@@ -18,7 +18,7 @@ public class ImportText {
                 lineOfText = br.readLine();
             } while (lineOfText != null);
         } catch (IOException e) {
-            System.out.println("Nie ma pliku");
+            System.out.println(e.getMessage());
         } finally {
             try {
                 br.close();

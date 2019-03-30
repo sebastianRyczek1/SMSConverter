@@ -8,29 +8,29 @@ import org.junit.runner.RunWith;
 import static org.junit.Assert.*;
 
 @RunWith(JUnitParamsRunner.class)
-public class SMSConvertorTest {
+public class NaiwnaTest {
     @Test
     public void  creatingSMSConvertorNull(){
-        SMSConvertor smsConvertor= new SMSConvertor(null);
+        Naiwna smsConvertor= new Naiwna(null);
         assertEquals("",smsConvertor.getSMSTextMessage());
     }
 
     @Test
     public void  creatingSMSConvertorblanc(){
-        SMSConvertor smsConvertor= new SMSConvertor("");
+        Naiwna smsConvertor= new Naiwna("");
         assertEquals("",smsConvertor.getSMSTextMessage());
     }
 
     @Test
     public void NaiwnaMetod() {
-        SMSConvertor smsConvertor = new SMSConvertor("Ala ma kota, a kot ma ale");
-        assertEquals("AlaMaKota,AKotMaAle",smsConvertor.NaiwnaCoding());
+        Naiwna smsConvertor = new Naiwna("Ala ma kota, a kot ma ale");
+        assertEquals("AlaMaKota,AKotMaAle",smsConvertor.compress());
     }
 
 
     @Test
     public  void NaiwnaDecompresing(){
-        SMSConvertor smsConvertor = new SMSConvertor("AlaMaKota,AKotMaAle");
-        assertEquals("Ala ma kota, a kot ma ale",smsConvertor.NaiwnaDecoding());
+        Naiwna smsConvertor = new Naiwna("AlaMaKota,AKotMaAle");
+        assertEquals("Ala ma kota, a kot ma ale",smsConvertor.decompress());
     }
 }

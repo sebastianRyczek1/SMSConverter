@@ -1,21 +1,22 @@
 package ConvertSMS;
 
-public class SMSConvertor {
+public class Naiwna implements Compressor {
     private String SMSTextMessage;
 
     public String getSMSTextMessage() {
         return SMSTextMessage;
     }
 
-    public SMSConvertor(String inputSMS) {
-        if (inputSMS == null || inputSMS.isEmpty()) {
+    public Naiwna(String textMessage) {
+        if (textMessage == null || textMessage.isEmpty()) {
             System.out.println("Ta wiadomośc nie ma tekstu");
             SMSTextMessage ="";
         } else {
-            SMSTextMessage = inputSMS;
+            SMSTextMessage = textMessage;
         }
     }
-    public String NaiwnaCoding(){
+    @Override
+    public String compress(){
         String[] TableOfWords= SMSTextMessage.split(" ");
         StringBuilder sb = new StringBuilder();
         for (String string:TableOfWords) {
@@ -25,7 +26,9 @@ public class SMSConvertor {
         SMSTextMessage =sb.toString();
         return SMSTextMessage ;
     }
-    public  String NaiwnaDecoding(){
+
+    @Override
+    public  String decompress(){
         char[] TableOfChars= SMSTextMessage.toCharArray();
         StringBuilder SMSText=new StringBuilder();
         SMSText.append(TableOfChars[0]);

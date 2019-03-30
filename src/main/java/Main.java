@@ -1,3 +1,4 @@
+/*
 import ConvertSMS.CostOfSMS;
 import ConvertSMS.ImportText;
 import ConvertSMS.SMSConvertor;
@@ -72,8 +73,8 @@ public class Main {
             } else {
                 System.out.println("ILE ZNAKOW");
                 System.out.println(message.length());
-                CostOfSMS costOfSMS = new CostOfSMS(message, 160);
-                System.out.println(costOfSMS.CalculateCostOfSMS());
+                CostOfSMS costOfSMS = new CostOfSMS(message, 160,0.23);
+                System.out.println(costOfSMS);
             }
 
             // tutaj powinniśmy mieć do wyboru decodowanie i obliczanie kosztu sms lub wyjscie
@@ -99,8 +100,8 @@ public class Main {
                     }
                     System.out.println("Zdecodowano wiadomość");
                 case "2":
-                    CostOfSMS costOfSMS = new CostOfSMS(message, 160);
-                    System.out.println(costOfSMS.CalculateCostOfSMS());
+                    CostOfSMS costOfSMS = new CostOfSMS(message, 160,0.23);
+                    System.out.println(costOfSMS);
                 case "3":
                     endProgram="n";
                 case "4":
@@ -109,3 +110,4 @@ public class Main {
         }while (endProgram.equals("n"));
     }
 }
+*/

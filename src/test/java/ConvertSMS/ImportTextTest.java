@@ -6,6 +6,8 @@ import junitparams.Parameters;
 import org.junit.*;
 import org.junit.runner.RunWith;
 
+import java.io.FileNotFoundException;
+
 import static org.junit.Assert.*;
 
 @RunWith(JUnitParamsRunner.class)
@@ -20,9 +22,7 @@ public class ImportTextTest {
     }
 
     @Test(expected = NullPointerException.class)
-    public void inputFileNoFile(){
+    public void inputFileNullPointer(){
         ImportText text = new ImportText("nazwwa");
-
     }
-
 }
