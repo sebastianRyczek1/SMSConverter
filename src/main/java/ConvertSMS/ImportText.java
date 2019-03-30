@@ -4,6 +4,7 @@ import java.io.*;
 
 public class ImportText {
     private String message;
+
     public ImportText(String file) {
         BufferedReader br = null;
         StringBuilder stringBuilder = new StringBuilder();
@@ -12,25 +13,24 @@ public class ImportText {
             br = new BufferedReader(new FileReader(file));
             lineOfText = br.readLine();
             do {
-                System.out.println(lineOfText);
                 stringBuilder.append(lineOfText);
                 stringBuilder.append(" ");
                 lineOfText = br.readLine();
             } while (lineOfText != null);
         } catch (IOException e) {
-            System.out.println(e.getMessage());
+            System.out.println("Nie ma pliku");
         } finally {
             try {
                 br.close();
             } catch (IOException e) {
-                e.printStackTrace();
+                System.out.println(e.getMessage());
             }
         }
         String outputMessage = stringBuilder.toString();
-        message= outputMessage;
+        message = outputMessage;
     }
 
-    public String readText(){
+    public String readText() {
         return message;
     }
 }

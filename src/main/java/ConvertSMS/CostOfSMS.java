@@ -4,10 +4,12 @@ import java.util.Scanner;
 
 public class CostOfSMS {
     private double SMSCost;
+    private  int sizeSms=160;
 
-    public CostOfSMS(String inputText) {
+    public CostOfSMS(String inputText, int sizeSms) {
+        this.sizeSms = sizeSms;
         System.out.println("Text ma: " + inputText.length() + "znaków");
-        int SMSSize = (int) Math.ceil((double) inputText.length() / 160);
+        int SMSSize = (int) Math.ceil((double) inputText.length() /sizeSms );
         System.out.println(SMSSize);
         SMSCost = PriceForOneSMS() * SMSSize;
     }
@@ -21,12 +23,8 @@ public class CostOfSMS {
 
     public String CalculateCostOfSMS() {
         StringBuilder sb = new StringBuilder();
-        int number=(int)Math.floor(SMSCost);
-
         sb.append("Your SMS will cost ");
-        sb.append(number);
-        sb.append('.');
-        sb.append(((int)Math.floor(SMSCost - Math.floor(SMSCost)) * 100));
+        sb.append(SMSCost);
         sb.append("Zł");
         return sb.toString();
 
